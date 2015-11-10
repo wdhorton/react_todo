@@ -15,7 +15,7 @@
   };
 
   TodoStore.removeChangedHandler = function (callback) {
-    _callbacks.filter(function (cb) {
+    _callbacks = _callbacks.filter(function (cb) {
       return cb !== callback;
     });
   };

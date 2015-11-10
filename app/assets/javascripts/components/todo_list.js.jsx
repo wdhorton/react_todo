@@ -19,7 +19,7 @@ var TodoList = React.createClass({
         <ul>
           {
             this.state.todos.map(function (todo) {
-              return <li key={todo.id}><TodoListItem todo={ todo }/></li>;
+              return <li key={todo.id}><TodoListItem active="false" todo={ todo }/></li>;
             })
           }
         </ul>
@@ -30,7 +30,5 @@ var TodoList = React.createClass({
   todosChanged: function () {
     this.setState({ todos: TodoStore.all() });
   }
-
-
 
 });
