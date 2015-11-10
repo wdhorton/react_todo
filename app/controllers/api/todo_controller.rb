@@ -1,4 +1,4 @@
-class TodoController < ApplicationController
+class Api::TodoController < ApplicationController
 
   def index
     todos = Todo.all
@@ -18,16 +18,18 @@ class TodoController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     @todo.update_attributes(todo_params)
+    render json: @todo
   end
 
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy!
+    render json: @todo
   end
 
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body)
+    params.require(:todo).permit(:title, :body, :done)
   end
 end
